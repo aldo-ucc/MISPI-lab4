@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title>Lab 3</title>
+        <meta name="author" content="Buharov Dmitry"/>
+
+        <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/svg/icon.png"/>
+        <h:outputStylesheet library="css" name="reset.css"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputStylesheet library="css" name="3rd-lab.css"/>
+        <h:outputScript library="js" name="sql-parser.js"></h:outputScript>
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <div class="header card">
+                <h:button outcome="index" styleClass="return"
+                          style="position: absolute; left: 1.5em; height: 28px; width: 28px"></h:button>
+                <div class="text-wrapper">
+                    <span class="text-name">Dmitry Buharov</span>
+                    <br/>
+                    ITMO University P32101 <br/> var 1002
+                </div>
+            </div>
+
+            <div class="form-block">
+                <h:form class="form" id="form">
+                    <div class="field-wrapper">
+                        <div class="command-link field card" id="xbtns">
+                            <div class="link-wrapper">
+                                <h:inputHidden value="#{point.x}" id="x-value"/>
+                                <div class="link-x label">X:</div>
+                                <h:commandLink styleClass="link-x" id="x1" value="-3"
+                                               onclick="selectX(this, -3);" action="#{point.setX(-3)}">
+                                    <f:ajax execute="x1"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-x" id="x2" value="-2"
+                                               onclick="selectX(this, -2);" action="#{point.setX(-2)}">
+                                    <f:ajax execute="x2"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-x" id="x3" value="-1"
+                                               onclick="selectX(this, -1);" action="#{point.setX(-1)}">
+                                    <f:ajax execute="x3"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-x" id="x4" value="0"
+                                               onclick="selectX(this, 0);" action="#{point.setX(0)}">
+                                    <f:ajax execute="x4"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-x" id="x5" value="1"
+                                               onclick="selectX(this, 1);" action="#{point.setX(1)}">
+                                    <f:ajax execute="x5"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-x" id="x6" value="2"
+                                               onclick="selectX(this, 2);" action="#{point.setX(2)}">
+                                    <f:ajax execute="x6"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-x" id="x7" value="3"
+                                               onclick="selectX(this, 3);" action="#{point.setX(3)}">
+                                    <f:ajax execute="x7"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-x" id="x8" value="4"
+                                               onclick="selectX(this, 4);" action="#{point.setX(4)}">
+                                    <f:ajax execute="x8"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-x" id="x9" value="5"
+                                               onclick="selectX(this, 5);" action="#{point.setX(5)}">
+                                    <f:ajax execute="x9"/>
+                                </h:commandLink>
+                            </div>
+                        </div>
+
+                        <div id="x-validate" class="card error-icon">
+                            <img class="front" id="x-error" src="#{resource['svg/Fail.svg']}" alt=""/>
+                            <img class="back" id="x-success" src="#{resource['svg/Success.svg']}" alt=""/>
+                        </div>
+                    </div>
+                    <div class="field-wrapper">
+                        <h:inputText styleClass="card field" value="#{point.y}" id="y-value" name="y" autocomplete="off"
+                                     a:placeholder="Input Y (-3..3)" required="true">
+                            <f:validateDoubleRange minimum="-2.999" maximum="2.999"/>
+                            <f:ajax execute="y"/>
+                        </h:inputText>
+                        <div id="y-validate" class="card error-icon">
+                            <img class="front" id="y-error" src="#{resource['svg/Fail.svg']}" alt=""/>
+                            <img class="back" id="y-success" src="#{resource['svg/Success.svg']}" alt=""/>
+                        </div>
+                    </div>
+
+                    <div class="field-wrapper">
+                        <div class="command-link field card" id="rbtns">
+                            <div class="link-wrapper">
+                                <h:inputHidden value="#{point.r}" id="r-value"/>
+                                <div class="link-r label">R:</div>
+                                <h:commandLink styleClass="link-r" id="r1" value="1"
+                                               onclick="selectR(this, 1);" action="#{point.setR(1)}">
+                                    <f:ajax execute="r1"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-r" id="r2" value="2"
+                                               onclick="selectR(this, 2);" action="#{point.setR(2)}">
+                                    <f:ajax execute="r2"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-r" id="r3" value="3"
+                                               onclick="selectR(this, 3);" action="#{point.setR(3)}">
+                                    <f:ajax execute="r3"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-r" id="r4" value="4"
+                                               onclick="selectR(this, 4);" action="#{point.setR(4)}">
+                                    <f:ajax execute="r4"/>
+                                </h:commandLink>
+                                <h:commandLink styleClass="link-r" id="r5" value="5"
+                                               onclick="selectR(this, 5);" action="#{point.setR(5)}">
+                                    <f:ajax execute="r5"/>
+                                </h:commandLink>
+                            </div>
+                        </div>
+
+                        <div id="r-validate" class="card error-icon">
+                            <img class="front" id="r-error" src="#{resource['svg/Fail.svg']}" alt=""/>
+                            <img class="back" id="r-success" src="#{resource['svg/Success.svg']}" alt=""/>
+                        </div>
+                    </div>
+
+                    <div class="button-wrapper submit field card">
+                        <h:commandButton styleClass="button" action="#{points.addPoint(point)}" value="Add point">
+                            <f:ajax execute="@form" render="table owner-table" onevent="pageSetting"/>
+                        </h:commandButton>
+                    </div>
+                </h:form>
+
+                <div class="delimeter"/>
+
+                <div class="interactive-block card" id="task">
+                    <canvas style="z-index: 2" id="canvas" height="300" width="360"/>
+                    <canvas style="position: absolute; z-index: 1" id="points-canvas" height="300" width="360"/>
+                </div>
+            </div>
+
+            <h:form class="sql-form" id="sql-form" action="sql" method="post">
+                <div class="field-wrapper sql-wrapper">
+                    <h:inputText autocomplete="off" class="input field card sql-field" value="#{query.query}" name="sql-request" id="sql-value"
+                                 a:placeholder="Input your SQL request (Only the 'SELECT' command is allowed)"
+                                 onkeypress="if (event.key === 'Enter') {return false;}">
+                    <f:ajax/>
+                    </h:inputText>
+
+                    <h:inputHidden id="sql-error-msg" value="#{query.answer}"></h:inputHidden>
+
+                    <h:commandLink id="sql-validate" class="card error-icon" action="#{query.executeQuery()}"
+                                   onclick="if (!this.classList.contains('flipped')) {return false;}">
+                        <f:ajax render="sql-error-msg" onevent="sqlError"/>
+                        <img class="front" id="sql-error" src="#{resource['svg/Fail.svg']}" alt=""/>
+                        <img class="back" id="sql-success" src="#{resource['svg/send.svg']}" alt=""/>
+                    </h:commandLink>
+                </div>
+            </h:form>
+
+            <div class="table-wrapper card">
+                <p style="text-align: center; width: 100%; line-height: 2em; font-weight: 600;">Your points</p>
+                <h:dataTable value="#{points.userPoints}" var="element" id="owner-table" styleClass="table">
+                    <h:column>
+                        <f:facet name="header">X</f:facet>
+                        ${element.x}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Y</f:facet>
+                        ${element.y}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">R</f:facet>
+                        ${element.r}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Request time</f:facet>
+                        ${element.formatDate}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Result</f:facet>
+                        ${element.getResult()}
+                    </h:column>
+                </h:dataTable>
+            </div>
+
+            <div class="table-wrapper card">
+                <p style="text-align: center; width: 100%; line-height: 2em; font-weight: 600;">All points</p>
+                <h:dataTable value="#{points.points}" var="element" id="table" styleClass="table">
+                    <h:column>
+                        <f:facet name="header">X</f:facet>
+                        ${element.x}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Y</f:facet>
+                        ${element.y}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">R</f:facet>
+                        ${element.r}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Request time</f:facet>
+                        ${element.formatDate}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Result</f:facet>
+                        ${element.getResult()}
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </div>
+    </h:body>
+    <h:outputScript library="js" name="main.js"/>
+</f:view>
+</html>

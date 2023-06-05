@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    padding: 4em;
+}
+
+a {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.container {
+    padding-bottom: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4em 2em;
+}
+
+.field {
+    background-color: var(--backgroundcolor);
+    padding: 0;
+    margin-top: 2em;
+    max-width: 500px;
+}
+
+.table-wrapper {
+    margin-top: 2em;
+    text-align: center;
+    overflow-x: auto;
+    max-height: 1000px;
+}
+
+.table {
+    line-height: 1.5em;
+}
+
+.field:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    height: 0;
+}
+
+td {
+    min-width: 6em;
+}
+
+@media (max-width: 760px) {
+    .container {
+        padding: 0;
+    }
+    .wrapper {
+        padding: 2em;
+    }
+}

@@ -1,0 +1,80 @@
+.sql-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 4em;
+}
+
+.sql-wrapper {
+    width: 100%;
+}
+
+.sql-wrapper .flipped:hover {
+    cursor: pointer;
+    transform: translateY(-3px) scale(1.005) translateZ(0) rotateY(180deg);
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.15);
+}
+
+.sql-wrapper .flipped:active {
+    transform: scale(1) translateZ(0) rotateY(180deg);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.1);
+}
+
+.command-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0;
+    height: 100%;
+}
+
+.label {
+    padding-right: 0.2em;
+}
+
+.link-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-wrapper .link-r,
+.link-wrapper .link-x {
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--textcolor);
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.link-wrapper .label {
+    justify-content: start;
+    width: 8em;
+}
+
+.link-wrapper .r-selected,
+.link-wrapper .x-selected {
+    border: 2px solid var(--primarycolor);
+    border-radius: 0.8em;
+}
+
+.header .return {
+    background: none;
+    border: none;
+    background-image: var(--backimg);
+    cursor: pointer;
+}
+
+.sql-error {
+    color: var(--errorcolor);
+}

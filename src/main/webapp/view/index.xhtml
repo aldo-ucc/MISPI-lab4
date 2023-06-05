@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title>Lab 3</title>
+        <meta name="author" content="Buharov Dmitry"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/svg/icon.png"/>
+        <h:outputStylesheet library="css" name="reset.css"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputStylesheet library="css" name="start.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="header card">
+                <a href="/dima" style="position: absolute; left: 1.5em; height: 28px; width: 28px"></a>
+
+                <div class="text-wrapper">
+                    <span class="text-name">Dmitry Buharov</span>
+                    <br/>
+                    ITMO University P32101 <br/> var 1002
+                </div>
+            </div>
+
+            <div class="description-block">
+                <div class="clock card">
+                    <div class="clock-inner">
+                        <div class="clock-center"></div>
+                        <div id="clock-seconds"></div>
+                        <div id="clock-minutes"></div>
+                        <div id="clock-hours"></div>
+                        <ul class="clock-numbers">
+                            <li>12</li>
+                            <li>3</li>
+                            <li>6</li>
+                            <li>9</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="description-wrapper card">
+                    <h3>This is the start page for lab work #3</h3>
+                    <p>Task:<br/>To develop an application based on the Java Server Faces Framework, which checks whether a point falls into a given area on a coordinate plane.
+                    </p>
+                    <div class="wrapper">
+                        <div class="stack">
+                            <img alt="" src="#{resource['svg/stack/js.svg']}"/>
+                            <img alt="" src="#{resource['svg/stack/html.svg']}"/>
+                            <img alt="" src="#{resource['svg/stack/css.svg']}"/>
+                            <img alt="" src="#{resource['svg/stack/java.svg']}"/>
+                        </div>
+                        <h:form class="button-wrapper">
+                            <h:button  id="submit" styleClass="button" outcome="app" value="To the 3rd lab"/>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+    <h:outputScript library="js" name="clock.js"/>
+</f:view>
+</html>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>/view/app.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>back</from-outcome>
+            <to-view-id>/view/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/view/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>toMain</from-outcome>
+            <to-view-id>/view/app.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/view/app.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>query</from-outcome>
+            <to-view-id>/view/query.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/view/query.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>backToMain</from-outcome>
+            <to-view-id>/view/app.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <managed-bean>
+        <managed-bean-name>Points</managed-bean-name>
+        <managed-bean-class>org.slovenlypolygon.lab3.model.bean.Points</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>Point</managed-bean-name>
+        <managed-bean-class>org.slovenlypolygon.lab3.model.bean.Point</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>query</managed-bean-name>
+        <managed-bean-class>org.slovenlypolygon.lab3.model.bean.SQLQuery</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+</faces-config>
